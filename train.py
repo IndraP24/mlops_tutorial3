@@ -28,8 +28,8 @@ X = imp.transform(X)
 
 
 # Quadratic DA model
-clf = RandomForestClassifier(max_depth=20)
-yhat = cross_val_predict(clf, X, y, cv=10)
+clf = RandomForestClassifier(max_depth=50)
+yhat = cross_val_predict(clf, X, y, cv=5)
 
 acc = np.mean(yhat==y)
 tn, fp, fn, tp = confusion_matrix(y, yhat).ravel()
