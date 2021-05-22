@@ -28,7 +28,7 @@ X = imp.transform(X)
 
 
 # Softmax Classifier model
-clf = SGDClassifier(loss="log", random_state=967, n_iter=10)
+clf = SGDClassifier(loss="log")
 yhat = cross_val_predict(clf, X, y, cv=5)
 
 acc = np.mean(yhat==y)
