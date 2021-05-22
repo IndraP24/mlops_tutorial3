@@ -1,6 +1,6 @@
 import pandas as pd 
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import SGDClassifier
 from sklearn import preprocessing
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
@@ -27,8 +27,9 @@ imp.fit(X)
 X = imp.transform(X)
 
 
-# Quadratic DA model
-clf = RandomForestClassifier(max_depth=50)
+
+# Softmax Classifier model
+clf = SGDClassifier(loss="log")
 yhat = cross_val_predict(clf, X, y, cv=5)
 
 acc = np.mean(yhat==y)
